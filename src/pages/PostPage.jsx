@@ -1,22 +1,17 @@
 import { useParams, Link } from "react-router-dom";
 import api, { errHandler } from "../api";
-import { useContext } from "react";
-import DataContext from "../context/DataContext";
+import { useStoreState, useStoreActions } from "easy-peasy";
 
-const PostPage = () => {
-  const { posts, setPosts, navigate } = useContext(DataContext);
+const PostPage = ({ navigate }) => {
   const { id } = useParams();
-  const post = posts.find((post) => post.id === id);
+
+  const deletePost = useStoreActions((actions) => actions.deletePost)
+  const getPostById = useStoreState((state) => state.getPostById)
+  const post = getPostById(id)
 
   const handleDelete = async (id) => {
-    try {
-      await api.delete(`/posts/${id}`);
-      const postsList = posts.filter((p) => p.id !== id);
-      setPosts(postsList);
-      navigate("/");
-    } catch (err) {
-      errHandler(err);
-    }
+    await deletePost(id)
+    navigate("/")
   };
 
   const Post = ({ post, id }) => {

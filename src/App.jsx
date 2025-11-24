@@ -10,25 +10,36 @@ import About from "./pages/About";
 import Missing from "./pages/404";
 
 import { Route, Routes, useNavigate } from "react-router-dom";
-import { DataProvider } from "./context/DataContext";
+import { useEffect } from "react";
+import { useAxiosFetch } from "./hooks";
+import { useStoreActions, useStoreState } from "easy-peasy";
 
 const App = () => {
+  const setPosts = useStoreActions((actions) => actions.setPosts);
+  const { data, fetchError, isLoading } = useAxiosFetch("/posts");
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    setPosts(data);
+  }, [data, setPosts]);
+
   return (
     <div className="App">
-      <DataProvider>
-        <Header title="React JS Blog" />
-        <Nav />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/post" element={<NewPost />} />
-          <Route path="/edit/:id" element={<EditPost />} />
-          <Route path="/posts/:id" element={<PostPage />} />
-          {/* Use Component for components that don't need props */}
-          <Route path="/about" Component={About} />
-          <Route path="*" Component={Missing} />
-        </Routes>
-        <Footer />
-      </DataProvider>
+      <Header title="React JS Blog" />
+      <Nav />
+      <Routes>
+        <Route
+          path="/"
+          element={<Home  isLoading={isLoading} fetchError={fetchError} />}
+        />
+        <Route path="/post" element={<NewPost navigate={navigate} />} />
+        <Route path="/edit/:id" element={<EditPost navigate={navigate} />} />
+        <Route path="/posts/:id" element={<PostPage navigate={navigate} />} />
+        {/* Use Component for components that don't need props */}
+        <Route path="/about" Component={About} />
+        <Route path="*" Component={Missing} />
+      </Routes>
+      <Footer />
     </div>
   );
 };
