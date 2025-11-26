@@ -13,14 +13,14 @@ const useAxiosFetch = (dataUrl) => {
     const fetchData = async (url) => {
       setIsLoading(true);
       try {
-        const res = await api.get(url, {
-          signal: controller.signal
-        });
+        // const res = await api.get(url, {
+        //   signal: controller.signal
+        // });
 
-        if (isMounted) {
-          setData(res.data);
-          setFetchError(null);
-        }
+        // if (isMounted) {
+        //   setData(res.data);
+        //   setFetchError(null);
+        // }
       } catch (err) {
         if (isMounted) {
           setFetchError(err.message);
