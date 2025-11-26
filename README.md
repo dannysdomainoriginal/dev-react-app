@@ -21,11 +21,9 @@ It's a really nice project overall
 It really had me getting upset here and there by the limitations and restrictions of Zustand and all  
 Since it's the state management tool I plan to take on as I continue to grow  
 Well as they say
-<br>
 ```
 Change what you cannot accept
 Accept what you cannot change
 ```
-<br>
 
 Bye for now 💖
