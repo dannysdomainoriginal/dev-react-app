@@ -8,7 +8,7 @@ Maybe it would this time
 App will be deployed and available on Github Pages [here]()  
 
 ## Project Overview
-![Project Dashboard](./public/readme.png)
+![Project Dashboard](./public/readme.png)  
 <br>
 Features of this Projects are:
 1. Add Post
@@ -17,7 +17,6 @@ Features of this Projects are:
 4. ```localStorage``` persistence achieved using Zustand ```persist``` so app runs without need of a backend server
 5. Unique ```localStorage``` key so data never gets overwritten by another app
 
-<br>
 It's a really nice project overall  
 It really had me getting upset here and there by the limitations and restrictions of Zustand and all  
 Since it's the state management tool I plan to take on as I continue to grow  
