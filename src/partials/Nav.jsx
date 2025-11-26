@@ -1,12 +1,12 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 import { useEffect } from "react";
-import { useStoreState, useStoreActions } from "easy-peasy";
+import { usePostStore } from "../store/posts";
 
 const Nav = () => {
-  const posts = useStoreState((state) => state.posts)
-  const search = useStoreState((state) => state.search)
-  const setSearch = useStoreActions((actions) => actions.setSearch)
-  const setSearchResults = useStoreActions((actions) => actions.setSearchResults)
+  const search = usePostStore((s) => s.search);
+  const posts = usePostStore((s) => s.posts);
+  const setSearch = usePostStore((s) => s.setSearch);
+  const setSearchResults = usePostStore((s) => s.setSearchResults);
 
   useEffect(() => {
     const s = search.trim();
@@ -18,7 +18,7 @@ const Nav = () => {
 
     setSearchResults(filteredResults.reverse());
   }, [posts, search]);
-  
+
   return (
     <nav className="Nav">
       <form className="searchForm" onSubmit={(e) => e.preventDefault()}>
@@ -32,9 +32,15 @@ const Nav = () => {
         />
       </form>
       <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/post">Post</Link></li>
-        <li><Link to="/about">About</Link></li>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/post">Post</Link>
+        </li>
+        <li>
+          <Link to="/about">About</Link>
+        </li>
       </ul>
     </nav>
   );

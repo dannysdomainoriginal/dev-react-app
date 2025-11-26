@@ -1,17 +1,16 @@
 import { useParams, Link } from "react-router-dom";
-import api, { errHandler } from "../api";
-import { useStoreState, useStoreActions } from "easy-peasy";
+import { usePostStore } from "../store/posts";
+import { shallow } from "zustand/shallow";
 
 const PostPage = ({ navigate }) => {
   const { id } = useParams();
 
-  const deletePost = useStoreActions((actions) => actions.deletePost)
-  const getPostById = useStoreState((state) => state.getPostById)
-  const post = getPostById(id)
+  const deletePost = usePostStore((s) => s.deletePost);
+  const post = usePostStore((s) => s.getPostById(id));
 
   const handleDelete = async (id) => {
-    await deletePost(id)
-    navigate("/")
+    deletePost(id);
+    navigate("/");
   };
 
   const Post = ({ post, id }) => {

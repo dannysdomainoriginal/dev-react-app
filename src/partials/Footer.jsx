@@ -1,7 +1,7 @@
-import { useStoreState } from "easy-peasy";
+import { usePostStore } from "../store/posts";
 
 const Footer = () => {
-  const postCount = useStoreState((state) => state.postCount)
+  const postCount = usePostStore((s) => s.getPostCount());
 
   return (
     <footer className="Footer">

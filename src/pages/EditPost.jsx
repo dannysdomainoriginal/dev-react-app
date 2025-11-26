@@ -1,13 +1,18 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { format } from "date-fns";
-import { useStoreState, useStoreActions } from "easy-peasy";
+import { usePostStore } from "../store/posts";
+import { shallow } from "zustand/shallow";
 
 const EditPost = ({ navigate }) => {
   const { id } = useParams();
-  const { editTitle, editBody, getPostById } = useStoreState((state) => state);
-  const { editPost, setEditTitle, setEditBody } = useStoreActions((actions) => actions);
-  const post = getPostById(id);
+
+  const editTitle = usePostStore((s) => s.editTitle);
+  const editBody = usePostStore((s) => s.editBody);
+  const editPost = usePostStore((s) => s.editPost);
+  const setEditTitle = usePostStore((s) => s.setEditTitle);
+  const setEditBody = usePostStore((s) => s.setEditBody);
+  const post = usePostStore((s) => s.getPostById(id));
 
   useEffect(() => {
     if (post) {
@@ -22,7 +27,7 @@ const EditPost = ({ navigate }) => {
     const datetime = format(new Date(), "MMMM dd, yyyy pp");
     const updatedPost = { id, title: editTitle, datetime, body: editBody };
 
-    await editPost(updatedPost);
+    editPost(updatedPost);
     navigate(`/posts/${id}`);
   };
 

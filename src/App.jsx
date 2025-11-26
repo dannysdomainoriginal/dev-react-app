@@ -12,25 +12,25 @@ import Missing from "./pages/404";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useAxiosFetch } from "./hooks";
-import { useStoreActions, useStoreState } from "easy-peasy";
+import { usePostStore } from "./store/posts";
 
 const App = () => {
-  const setPosts = useStoreActions((actions) => actions.setPosts);
+  const setPosts = usePostStore((s) => s.setPosts);
   const { data, fetchError, isLoading } = useAxiosFetch("/posts");
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    setPosts(data);
-  }, [data, setPosts]);
+  // useEffect(() => {
+  //   setPosts(data);
+  // }, [data, setPosts]);
 
   return (
     <div className="App">
-      <Header title="React JS Blog" />
+      <Header title="React JS Blog" navigate={navigate} />
       <Nav />
       <Routes>
         <Route
           path="/"
-          element={<Home  isLoading={isLoading} fetchError={fetchError} />}
+          element={<Home isLoading={isLoading} fetchError={fetchError} />}
         />
         <Route path="/post" element={<NewPost navigate={navigate} />} />
         <Route path="/edit/:id" element={<EditPost navigate={navigate} />} />

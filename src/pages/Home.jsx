@@ -1,8 +1,8 @@
 import Feed from "../components/Feed";
-import { useStoreState } from "easy-peasy";
+import { usePostStore } from "../store/posts";
 
 const Home = ({ isLoading, fetchError }) => {
-  const posts = useStoreState((state) => state.searchResults)
+  const posts = usePostStore((s) => s.searchResults)
   
   return (
     <main className="Home">
