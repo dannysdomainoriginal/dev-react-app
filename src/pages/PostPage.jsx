@@ -10,7 +10,7 @@ const PostPage = ({ navigate }) => {
 
   const handleDelete = async (id) => {
     deletePost(id);
-    navigate("/");
+    navigate("./");
   };
 
   const Post = ({ post, id }) => {
@@ -39,7 +39,7 @@ const PostPage = ({ navigate }) => {
             <h2>Post Not Found</h2>
             <p>Well, that's disappointing</p>
             <p>
-              <Link to="/">Visit Our Homepage</Link>
+              <Link to="./">Visit Our Homepage</Link>
             </p>
           </>
         )}

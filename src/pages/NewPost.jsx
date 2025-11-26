@@ -16,7 +16,7 @@ const NewPost = ({ navigate }) => {
     const newPost = { title: postTitle, datetime, body: postBody };
 
     savePost(newPost);
-    navigate("/");
+    navigate("./");
   };
 
   return (

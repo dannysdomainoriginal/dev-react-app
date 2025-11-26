@@ -6,7 +6,7 @@ const Header = ({ title, navigate }) => {
 
   return (
     <header className="Header">
-      <h1 onClick={() => navigate("/")}>{title}</h1>
+      <h1 onClick={() => navigate("./")}>{title}</h1>
       {width < 768 ? (
         <FaMobileAlt />
       ) : width < 992 ? (
