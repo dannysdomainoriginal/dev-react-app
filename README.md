@@ -5,7 +5,7 @@ My first ever React tutorial infact
 I pushed it to GitHub so I can try deploying to GitHub Pages  
 Last time I tried using ```gh-pages``` it didn't work  
 Maybe it would this time  
-App will be deployed and available on Github Pages [here]()  
+App will be deployed and available on Github Pages [here](https://dannysdomainoriginal.github.io/dev-react-blog/)  
 
 ## Project Overview
 ![Project Dashboard](./public/readme.png)  
