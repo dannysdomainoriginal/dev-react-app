@@ -29,30 +29,6 @@
       "title": "Number Five",
       "datetime": "November 21, 2025 5:41:38 AM",
       "body": "Third post... Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-    },
-    {
-      "title": "New Postttt",
-      "datetime": "November 21, 2025 2:39:50 PM",
-      "body": "This is a new post after the tutorial and all",
-      "id": "ea6a"
-    },
-    {
-      "id": "aba6",
-      "title": "Charles Here :)",
-      "datetime": "November 21, 2025 2:40:43 PM",
-      "body": "Keep going, bro. I believe in you 💪"
-    },
-    {
-      "title": "Updated",
-      "datetime": "November 24, 2025 7:53:24 PM",
-      "body": "Yo, Charles here",
-      "id": "4e9b"
-    },
-    {
-      "id": "c67f",
-      "title": "Finally implemented Zustand in React Blog",
-      "datetime": "November 26, 2025 7:00:59 AM",
-      "body": "Achieved state management and persistence.\nNo backend needed.\nReady for deployment 😜💪"
     }
   ]
 }

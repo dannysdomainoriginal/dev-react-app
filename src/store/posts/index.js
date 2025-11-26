@@ -32,7 +32,8 @@ const PostStore = (set, get) => ({
 
   savePost: (newPost) => {
     set((state) => {
-      state.posts.push(newPost);
+      const id = state.posts.length ? Number(state.posts[state.posts.length - 1].id) + 1 : 1
+      state.posts.push({ id: String(id), ...newPost });
       state.postTitle = "";
       state.postBody = "";
     });
